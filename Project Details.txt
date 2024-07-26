@@ -1,0 +1,62 @@
+Quiz Web App 
+(HTML, CSS, ExpressJS, EJS, and Open Trivia Database)
+
+Objective:
+Create a Quiz Web App using ExpressJS and EJS as the view engine. The app will fetch questions from the Open Trivia Database API (https://opentdb.com/). The app should have a landing page where users specify the number of questions and the category, then present questions one at a time. The app should keep track of the score for each question and across multiple games. Extra points for deploying the app on Mars server or Heroku.
+
+Requirements:
+
+1. Landing Page:
+   - A form where users can specify:
+     - Number of questions
+     - Category of questions
+     - Difficulty of the questions
+     - Type of question
+   - Submit button to start the quiz
+
+2. Quiz Functionality:
+   - Fetch questions from the Open Trivia Database API based on user inputs.
+   - Display questions one at a time.
+   - Allow users to select an answer and submit it.
+   - Display whether the selected answer is correct or incorrect.
+   - Move to the next question after submission.
+   - Keep track of the score for the current game.
+   - At the end of the quiz, display the total score.
+
+3. Score Tracking:
+   - Store the score for each game.
+   - Keep track of cumulative scores across multiple games for the user.
+
+4. Bonus: Deployment:
+   - Extra points for deploying the app on Mars server or Heroku.
+
+Project Structure:
+
+1. Server Setup (ExpressJS):
+   - Set up an ExpressJS server.
+   - Create routes for the landing page, quiz page, and score submission.
+
+2. Views (EJS):
+   - Create EJS templates for the landing page, quiz page, and score display page.
+   - Use EJS to dynamically render question data.
+
+3. Fetching Questions:
+   - Use axios to make API calls to the Open Trivia Database.
+   - Handle API responses and parse question data.
+
+4. Quiz Logic:
+   - Implement logic to present questions one at a time.
+   - Handle user answers and update the score accordingly.
+
+5. Score Tracking:
+   - Use a simple in-memory store (like a .json file) to keep track of scores across games.
+
+6. Styling:
+   - Use CSS for basic styling of the app.
+
+7. Deployment:
+   - Deploy the app to Mars server or Heroku.
+
+How to submit?
+You have to place your project into a zip file. You also have to record a 5-7 min walkthrough video of your code and how the website runs/looks Post this video on YouTube (it does not have to be public) and share the link with me. This last step is optional if you successfully deploy your code on a server. Simply submit the URL and I will play around with it. 
+
