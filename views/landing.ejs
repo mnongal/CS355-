@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Quiz App</h1>
+        <form action="/quiz" method="post">
+            <label for="number">Number of Questions:</label>
+            <input type="number" id="number" name="number" required>
+            
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%- category.name %></option>
+                <% }) %>
+            </select>
+            
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+                <option value="multiple">Multiple Choice</option>
+                <option value="boolean">True/False</option>
+            </select>
+            
+            <button type="submit">Start Quiz</button>
+        </form>
+
+        <h2>Top Scores:</h2>
+        <ol>
+            <% topScores.forEach((topScore, index) => { %>
+                <li><%= topScore %></li>
+            <% }) %>
+        </ol>
+    </div>
+</body>
+</html>

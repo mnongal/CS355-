@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="score">Your Score: <%= score %></h1>
+        <h2>Top Scores:</h2>
+        <ol>
+            <% topScores.forEach((topScore, index) => { %>
+                <li><%= topScore %></li>
+            <% }) %>
+        </ol>
+        <a href="/">Play Again</a>
+    </div>
+</body>
+</html>

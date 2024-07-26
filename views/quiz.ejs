@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Question <%= index + 1 %> / <%= questions.length %></h1>
+        <p class="question"><%= questions[index].question %></p>
+
+        <% if (feedback) { %>
+            <div class="feedback">
+                <% if (feedback.correct) { %>
+                    <p class="correct">Correct!</p>
+                <% } else { %>
+                    <p class="incorrect">Incorrect. The correct answer was: <%= feedback.correctAnswer %></p>
+                <% } %>
+                <form action="/submit" method="post">
+                    <input type="hidden" name="score" value="<%= score %>">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <input type="hidden" name="questions" value='<%= JSON.stringify(questions) %>'>
+                    <input type="hidden" name="next" value="true">
+                    <button type="submit">Continue</button>
+                </form>
+            </div>
+        <% } else { %>
+            <form action="/submit" method="post">
+                <% if (questions[index].type === 'multiple') { %>
+                    <% questions[index].incorrect_answers.forEach(answer => { %>
+                        <div class="answer-option">
+                            <input type="radio" name="answer" value="<%= answer %>">
+                            <label><%= answer %></label>
+                        </div>
+                    <% }) %>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" value="<%= questions[index].correct_answer %>">
+                        <label><%= questions[index].correct_answer %></label>
+                    </div>
+                <% } else { %>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" value="True">
+                        <label>True</label>
+                    </div>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" value="False">
+                        <label>False</label>
+                    </div>
+                <% } %>
+                <input type="hidden" name="correctAnswer" value="<%= questions[index].correct_answer %>">
+                <input type="hidden" name="score" value="<%= score %>">
+                <input type="hidden" name="index" value="<%= index %>">
+                <input type="hidden" name="questions" value='<%= JSON.stringify(questions) %>'>
+                <button type="submit">Submit Answer</button>
+            </form>
+        <% } %>
+    </div>
+</body>
+</html>
